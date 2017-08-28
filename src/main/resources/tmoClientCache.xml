@@ -10,13 +10,13 @@
 
 	<util:properties id="clientConfigurationProperties">
 		<prop key="security-client-auth-init">com.tmo.gemfire.security.UserAuthInitialize.create</prop>
-		<prop key="security-username">${gemfire.username}</prop>
-		<prop key="security-password">${gemfire.password}</prop>
+		<prop key="security-username">${gemfire.username:cluster-operator}</prop>
+		<prop key="security-password">${gemfire.password:1234567}</prop>
 		<prop key="log-level">config</prop>
 	</util:properties>
 
-	<gfe:pool id="gemfirePool" subscription-enabled="true">
-		<gfe:locator host="localhost" port="10334" />
+	<gfe:pool id="gemfirePool" subscription-enabled="true" locators="${gemfire.locators}">
+<!-- 		<gfe:locator host="localhost" port="10334" /> -->
 	</gfe:pool>
 
 	<gfe:client-cache id="gemfireCache" pool-name="gemfirePool"
