@@ -13,6 +13,7 @@
 		<prop key="security-username">${gemfire.username:cluster-operator}</prop>
 		<prop key="security-password">${gemfire.password:1234567}</prop>
 		<prop key="log-level">config</prop>
+		<prop key="name">${spring.application.name}</prop>
 	</util:properties>
 
 	<gfe:pool id="gemfirePool" subscription-enabled="true" locators="${gemfire.locators}">
